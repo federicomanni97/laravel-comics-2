@@ -3,8 +3,7 @@
         <img src="{{Vite::asset('/resources/img/dc-logo.png')}}" alt="">
         <div class="text-uppercase">
             <ul class="d-flex list-unstyled">
-                <li class="px-4"><a href="{{route('comics.index')}}">Home</a></li>
-                <li class="px-4"><a href="{{route('bonus')}}">Home</a></li>
+                <li class="px-4"><a href="{{route('home')}}">Home</a></li>
                 <li class="px-4"><a href="{{route('comics.index')}}">Comics</a></li>
                 <li class="px-4"><a href="">Movies</a></li>
                 <li class="px-4"><a href="">Tv</a></li>
