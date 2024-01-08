@@ -12,7 +12,6 @@
                 <li class="px-4"><a href="">Fans</a></li>
                 <li class="px-4"><a href="">News</a></li>
                 <li class="px-4"><a href="">Shop</a></li>
-                <li class="px-4"><a href="{{route('home')}}">Home</a></li>
             </ul>
         </div>
     </div>

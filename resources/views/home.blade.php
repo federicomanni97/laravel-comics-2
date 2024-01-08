@@ -27,16 +27,16 @@
     </div>
     <div class="text-light bg-primary d-flex align-items-center justify-content-between p-4">
         <div class="container">
-                <div class="d-flex justify-content-between align-items-center">
-                    @foreach ($advices as $element)
-                    <div class="smallwidth">
-                        <img class="smallwidth" src="{{$element['image']}}" alt="">
-                    </div>
-                    <div>
-                        <span class="p-3">{{$element['title']}}</span>
-                    </div>                 
-                    @endforeach
+            <div class="d-flex justify-content-between align-items-center">
+                @foreach ($advices as $element)
+                <div class="smallwidth">
+                    <img class="smallwidth" src="{{$element['image']}}" alt="">
                 </div>
+                <div>
+                    <span class="p-3">{{$element['title']}}</span>
+                </div>                 
+                @endforeach
+            </div>
         </div>
     </div>
 </main>
