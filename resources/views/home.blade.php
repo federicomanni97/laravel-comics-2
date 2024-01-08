@@ -6,7 +6,7 @@
 
 <main>
     <div class="container">
-        <div class="pb-4">
+        <!-- <div class="pb-4">
             <span class="fs-3 py-3 px-5 bg-primary text-light">Current Series</span>
         </div>
         <div class="row">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div> -->
         <div class="text-center p-5">
             <span class="fs-5 py-3 px-5 bg-primary text-light">Load More</span>
         </div>    
