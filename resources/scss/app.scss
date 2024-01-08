@@ -1,0 +1,67 @@
+@use './partials/variables' as *;
+
+$fa-font-path: "../webfonts" !default;
+
+// importo i fontawesome che mi servono:
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+h1 {
+    color: $text-color;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.jumbotron-bg{
+    background-image: url(/resources/img/jumbotron.jpg);
+    background-size: cover;
+    height: 400px;
+    object-fit: cover;
+}
+
+.bg-comics{
+    background-color: #303030;
+}
+
+.imgwidth{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+*{
+    font-family: "Bangers", Open-sans;
+    font-size: 20px;
+}
+
+.smallwidth{
+    width: 40px;
+}
+
+ul{
+    list-style: none;
+}
+
+.top-footer{
+    background-image: url('/resources/img/footer-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+.right-logo{
+    background-image: url('/resources/img/dc-logo-bg.png');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.imgwidth2{
+    width: 350px;
+}
