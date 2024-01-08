@@ -21,9 +21,9 @@
                 </div>
             @endforeach
         </div> -->
-        <div class="text-center p-5">
+        <!-- <div class="text-center p-5">
             <span class="fs-5 py-3 px-5 bg-primary text-light">Load More</span>
-        </div>    
+        </div>     -->
     </div>
     <div class="text-light bg-primary d-flex align-items-center justify-content-between p-4">
         <div class="container">
