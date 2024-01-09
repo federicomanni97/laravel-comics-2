@@ -13,5 +13,5 @@ class Comic extends Model
     //? protected $guarded = [];
 
     //! nel fillable vanno inseriti i dati che voglio includere
-    protected $fillable = ['title', 'description', 'price', 'sale_date', 'type', 'series'];
+    protected $fillable = ['title', 'thumb', 'description', 'price', 'sale_date', 'type', 'series'];
 }

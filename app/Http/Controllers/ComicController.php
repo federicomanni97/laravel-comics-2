@@ -41,29 +41,31 @@ class ComicController extends Controller
     {
         //
         // //! prendo i dati passati del form dalla request
+        
+        $request->validate([
+            'title' => 'required|min:5|max:255',
+            'description' => 'required|min:5|max:255',
+            'price' => 'required|min:5|max:255',
+            'thumb' => 'required|min:5|max:255',
+            'sale_date' => 'required|min:5|max:255',
+            'type' => 'required|min:5|max:255',
+            'series' => 'required|min:5|max:255',
+        ]);
         $form = $request->all();
-        // $request->validate([
-        //     'title' => 'required|min:5|max:255',
-        //     'description' => 'required|min:5|max:55',
-        //     'price' => 'required|min:5|max:30',
-        //     'sale_date' => 'required|min:5|max:255',
-        //     'type' => 'required|min:5|max:255',
-        //     'series' => 'required|min:5|max:255',
-        // ]);
         //! creo un nuovo prodotto
-        $new_comic = new Comic();
-        $new_comic->title = $form['title'];
-        $new_comic->description = $form['description'];
-        $new_comic->price = $form['price'];
-        $new_comic->thumb = $form['thumb'];
-        $new_comic->sale_date = $form['sale_date'];
-        $new_comic->series = $form['series'];
-        $new_comic->type = $form['type'];
+        // $new_comic = new Comic();
+        // $new_comic->title = $form['title'];
+        // $new_comic->description = $form['description'];
+        // $new_comic->price = $form['price'];
+        // $new_comic->thumb = $form['thumb'];
+        // $new_comic->sale_date = $form['sale_date'];
+        // $new_comic->series = $form['series'];
+        // $new_comic->type = $form['type'];
         // //! assegno i valori del form al nuovo prodotto
         // $new_comic->fill($form);
         // //! salvo il nuovo prodotto
-        $new_comic->save();
-        // $new_comic = Comic::create($form);
+        // $new_comic->save();
+        $new_comic = Comic::create($form);
         //! reindirizzo l'utente alla pagina del nuovo prodotto appena creato
         return to_route('comics.index'); 
     }
