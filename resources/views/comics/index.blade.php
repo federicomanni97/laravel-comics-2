@@ -16,12 +16,12 @@
             @foreach ($comics as $product)
                 <div class="col-12 col-md-4 col-lg-2 py-3">
                     <div class="">
-                        <img class="imgwidth" src="{{$product->thumb}}" alt="{{$product['title']}}">
+                        <img class="imgwidth" src="{{$product->thumb}}" alt="{{$product->title}}">
                     </div>
                     <div class="py-2 d-flex flex-column">
                         <span class="text-white py-2">{{$product->series}}</span>
                     </div>
-                    <span class="bg-danger p-2"><a class="text-white" href="{{route('comics.show', $product['id'])}}">Read More</a></span>
+                    <span class="bg-danger p-2"><a class="text-white" href="{{route('comics.show', $product->id)}}">Read More</a></span>
                     <form action="{{route('comics.destroy', $product->id)}}" method="POST">
                         @csrf
                         @method ('DELETE')
