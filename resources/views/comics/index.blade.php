@@ -8,13 +8,13 @@
     <div class="container">
         <div class="pb-4">
             <span class="fs-3 py-3 px-5 bg-primary text-light">Current Series</span>
-            <form action="{{route('comics.index')}}" method="GET">
-                <select name="search" id="search">
-                    <option value="all">All</option>
-                    <option value="novel">Novel</option>
-                    <option value="comic">Comic</option>
-                    <option value="action">Action</option>
+            <form class="mt-4" action="{{route('comics.index')}}" method="GET">
+                <select name="search" id="search" class="p-1 bg-primary text-white border-0 fs-5">
+                    <option value="">All</option>
+                    <option value="comic book">Comic Book</option>
+                    <option value="graphic novel">Graphic Novel</option>
                 </select>
+                <button type="submit" class="btn btn-danger ms-3">Cerca</button>
             </form>
         </div>
         @if(session()->has('message'))
@@ -33,7 +33,7 @@
                     <form action="{{route('comics.destroy', $product->id)}}" method="POST">
                         @csrf
                         @method ('DELETE')
-                        <button type="submit" class="p-1 my-2 bg-primary text-white cancel-button" data-item-title="{{$product->title}}">Remove</button>
+                        <button type="submit" class="p-2 border-0 my-2 bg-primary text-white cancel-button" data-item-title="{{$product->title}}">Remove</button>
                     </form>
                 </div>
             @endforeach

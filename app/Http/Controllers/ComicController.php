@@ -21,7 +21,7 @@ class ComicController extends Controller
         // dd($request->query());
         if(!empty($request->query('search'))){
             $search = $request->query('search');
-            $comics = Comic::where('type',)->get();
+            $comics = Comic::where('type', $search)->get();
             // return view('comics.index', compact('comics'));
         } else {
             $comics = Comic::all();
