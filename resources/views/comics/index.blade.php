@@ -26,14 +26,14 @@
                     <div class="">
                         <img class="imgwidth" src="{{$product->thumb}}" alt="{{$product->title}}">
                     </div>
-                    <div class="py-2 d-flex flex-column">
-                        <span class="text-white py-2">{{$product->series}}</span>
+                    <div class="py-1 d-flex flex-column">
+                        <span class="text-white py-1">{{$product->series}}</span>
                     </div>
-                    <span class="bg-danger p-2"><a class="text-white" href="{{route('comics.show', $product->id)}}">Read More</a></span>
+                    <span class="bg-danger p-1"><a class="text-white" href="{{route('comics.show', $product->id)}}">Read More</a></span>
                     <form action="{{route('comics.destroy', $product->id)}}" method="POST">
                         @csrf
                         @method ('DELETE')
-                        <button type="submit" class="p-2 border-0 my-2 bg-primary text-white cancel-button" data-item-title="{{$product->title}}">Remove</button>
+                        <button type="submit" class="p-1 border-0 my-2 bg-primary text-white cancel-button" data-item-title="{{$product->title}}">Remove</button>
                     </form>
                 </div>
             @endforeach
