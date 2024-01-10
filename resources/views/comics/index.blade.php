@@ -9,7 +9,7 @@
         <div class="pb-4">
             <span class="fs-3 py-3 px-5 bg-primary text-light">Current Series</span>
             <form class="mt-4" action="{{route('comics.index')}}" method="GET">
-                <select name="search" id="search" class="p-1 bg-primary text-white border-0 fs-5">
+                <select name="search" id="search" class="rounded-3 p-1 text-black border-0">
                     <option value="">All</option>
                     <option value="comic book">Comic Book</option>
                     <option value="graphic novel">Graphic Novel</option>

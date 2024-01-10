@@ -6,6 +6,15 @@
 
 <main>
     <div class="container">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <form action="{{route('comics.store')}}" method="POST" class="p-3">
             @csrf
                 <input type="text" id="title" name="title" placeholder="Title" class="form-control my-2" required>
