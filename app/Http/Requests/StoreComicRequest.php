@@ -29,12 +29,12 @@ class StoreComicRequest extends FormRequest
         return [
             //
             'title' => 'required|min:5|max:255',
-            'description' => 'required|min:5|max:255',
-            'price' => 'required|min:5|max:255',
-            'thumb' => 'required|min:5|max:255',
-            'sale_date' => 'required|min:5|max:255',
-            'type' => 'required|min:5|max:255',
-            'series' => 'required|min:5|max:255'
+            'description' => 'nullable|max:3000',
+            'price' => 'required|min:1|max:255',
+            'thumb' => 'required|min:1|max:255',
+            'sale_date' => 'required',
+            'type' => 'required|min:1|max:255',
+            'series' => 'required|min:1|max:255'
         ];
     }
 

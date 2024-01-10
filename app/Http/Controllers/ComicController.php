@@ -116,7 +116,7 @@ class ComicController extends Controller
     public function update(UpdateComicRequest $request, Comic $comic)
     {
         //
-        $form = $request->all();
+        // $form = $request->all();
         // $comic->title = $form['title'];
         // $comic->description = $form['description'];
         // $comic->price = $form['price'];
