@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 
 class ComicController extends Controller
 {
@@ -13,10 +15,18 @@ class ComicController extends Controller
      *
      * @return \Illuminate\View\View;
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         //
-        $comics = Comic::all();
+        // dd($request->query());
+        if(!empty($request->query('search'))){
+            $search = $request->query('search');
+            $comics = Comic::where('type',)->get();
+            // return view('comics.index', compact('comics'));
+        } else {
+            $comics = Comic::all();
+        }
+        // $comics = Comic::all();
         return view('comics.index', compact('comics'));
     }
 
@@ -37,21 +47,22 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
         //
         // //! prendo i dati passati del form dalla request
         
-        $request->validate([
-            'title' => 'required|min:5|max:255',
-            'description' => 'required|min:5|max:255',
-            'price' => 'required|min:5|max:255',
-            'thumb' => 'required|min:5|max:255',
-            'sale_date' => 'required|min:5|max:255',
-            'type' => 'required|min:5|max:255',
-            'series' => 'required|min:5|max:255',
-        ]);
-        $form = $request->all();
+        // $request->validate([
+        //     'title' => 'required|min:5|max:255',
+        //     'description' => 'required|min:5|max:255',
+        //     'price' => 'required|min:5|max:255',
+        //     'thumb' => 'required|min:5|max:255',
+        //     // 'thumb'=> 'url',
+        //     'sale_date' => 'required|min:5|max:255',
+        //     'type' => 'required|min:5|max:255',
+        //     'series' => 'required|min:5|max:255',
+        // ]);
+        // $form = $request->all();
         //! creo un nuovo prodotto
         // $new_comic = new Comic();
         // $new_comic->title = $form['title'];
@@ -65,8 +76,9 @@ class ComicController extends Controller
         // $new_comic->fill($form);
         // //! salvo il nuovo prodotto
         // $new_comic->save();
+        $form = $request->validated();
         $new_comic = Comic::create($form);
-        //! reindirizzo l'utente alla pagina del nuovo prodotto appena creato
+        // //! reindirizzo l'utente alla pagina del nuovo prodotto appena creato
         return to_route('comics.index'); 
     }
 
@@ -101,7 +113,7 @@ class ComicController extends Controller
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
         //
         $form = $request->all();
@@ -111,6 +123,7 @@ class ComicController extends Controller
         // $comic->sale_date = $form['sale_date'];
         // $comic->series = $form['series'];
         // $comic->type = $form['type'];
+        $form = $request->validated();
         $comic->fill($form);
         $comic->update();
         return to_route('comics.show', $comic->id); 
@@ -127,5 +140,31 @@ class ComicController extends Controller
         //
         $comic->delete();
         return to_route('comics.index')->with('message', "Il prodotto $comic->title è stato eliminato.");
+    }
+    /**
+     * Summary of validation
+     * @return void
+     */
+    private function validation($data)
+    {
+        $validator = Validator::make($data, [
+
+            'title' => 'required|min:5|max:255',
+            'description' => 'required|min:5|max:255',
+            'price' => 'required|min:5|max:255',
+            'thumb' => 'required|min:5|max:255',
+            'sale_date' => 'required|min:5|max:255',
+            'type' => 'required|min:5|max:255',
+            'series' => 'required|min:5|max:255'
+
+        ],[
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.min' => 'Il campo titolo deve avere almeno :min caratteri',
+            'title.max' => 'il campo titolo deve avere massimo :max caratteri',
+            'type.requider' => 'Il campo tipo è obbligatorio',
+            'type.max' => 'il tipo non può superare i :max caratteri'
+        ])->validate();
+
+        return $validator;
     }
 }
